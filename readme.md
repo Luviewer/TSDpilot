@@ -6,4 +6,5 @@
 
 2. Make    
 `cd platform`    
+`cd cuavv5plus`
 `scons -j4`
