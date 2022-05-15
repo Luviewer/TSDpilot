@@ -13,7 +13,10 @@
         "rtdevice.h": "c",
         "rthw.h": "c",
         "rtthread.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "atomic": "cpp",
+        "chrono": "cpp",
+        "string": "cpp"
     },
     "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, IndentWidth: 4 ,ColumnLimit: 120}",
     "C_Cpp.clang_format_style": "file",

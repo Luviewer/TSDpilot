@@ -3,11 +3,8 @@ from building import *
 
 cwd     = GetCurrentDir()
 src     = Split("""
-main.c
+complex.cpp
 """)
-
-# if GetDepend(['RT_USING_CPLUSPLUS']):
-#     src += Glob('*.cpp')
 
 inc = [cwd]
 
