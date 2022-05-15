@@ -12,23 +12,26 @@
 #define __BOARD_H__
 
 #include <rtthread.h>
-#include <stm32f7xx.h>
+#include <stm32h7xx.h>
 #include "drv_common.h"
 #include "drv_gpio.h"
-#include "drv_usart.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define STM32_SRAM_SIZE           (512)
-#define STM32_SRAM_END            (0x20000000 + STM32_SRAM_SIZE * 1024)
+#if !defined  (LSI_VALUE)
+  #define LSI_VALUE  ((uint32_t)32000)
+#endif
 
-#define STM32_FLASH_START_ADRESS     ((uint32_t)0x08008000)
-#define STM32_FLASH_SIZE             (2016 * 1024)
+#define STM32_FLASH_START_ADRESS     ((uint32_t)0x08000000)
+#define STM32_FLASH_SIZE             (2048 * 1024)
 #define STM32_FLASH_END_ADDRESS      ((uint32_t)(STM32_FLASH_START_ADRESS + STM32_FLASH_SIZE))
 
-#if defined(__CC_ARM) || defined(__CLANG_ARM)
+#define STM32_SRAM_SIZE           (512)
+#define STM32_SRAM_END            (0x24000000 + STM32_SRAM_SIZE * 1024)
+
+#if defined(__ARMCC_VERSION)
 extern int Image$$RW_IRAM1$$ZI$$Limit;
 #define HEAP_BEGIN      (&Image$$RW_IRAM1$$ZI$$Limit)
 #elif __ICCARM__
@@ -48,4 +51,3 @@ void SystemClock_Config(void);
 #endif
 
 #endif
-

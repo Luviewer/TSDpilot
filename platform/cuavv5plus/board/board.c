@@ -59,3 +59,47 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
+
+void rt_hw_board_init()
+{
+#ifdef BSP_SCB_ENABLE_I_CACHE
+    /* Enable I-Cache---------------------------------------------------------*/
+    SCB_EnableICache();
+#endif
+
+#ifdef BSP_SCB_ENABLE_D_CACHE
+    /* Enable D-Cache---------------------------------------------------------*/
+    SCB_EnableDCache();
+#endif
+
+    /* HAL_Init() function is called at the beginning of the program */
+    HAL_Init();
+
+    /* System clock initialization */
+    SystemClock_Config();
+
+    /* Heap initialization */
+#if defined(RT_USING_HEAP)
+    rt_system_heap_init((void *)HEAP_BEGIN, (void *)HEAP_END);
+#endif
+
+    /* Pin driver initialization is open by default */
+#ifdef RT_USING_PIN
+    rt_hw_pin_init();
+#endif
+
+    /* USART driver initialization is open by default */
+#ifdef RT_USING_SERIAL
+    rt_hw_usart_init();
+#endif
+
+    /* Set the shell console output device */
+#if defined(RT_USING_CONSOLE) && defined(RT_USING_DEVICE)
+    rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
+#endif
+
+    /* Board underlying hardware initialization */
+#ifdef RT_USING_COMPONENTS_INIT
+    rt_components_board_init();
+#endif
+}
