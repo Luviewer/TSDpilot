@@ -1,3 +1,6 @@
 [submodule "modules/rt-thread"]
 	path = modules/rt-thread
 	url = https://gitee.com/rtthread/rt-thread.git
+[submodule "modules/mavlink"]
+	path = modules/mavlink
+	url = https://github.com/mavlink/mavlink.git
