@@ -110,7 +110,7 @@ class firmware(object):
     crcpad = bytearray(b'\xff\xff\xff\xff')
 
     def __init__(self, path):
-        self.desc['board_id'] = 50
+        self.desc['board_id'] = 140
         self.desc['image_maxsize'] = 2097152
         f = open(path, "rb")
         self.image = bytearray(f.read())
@@ -709,7 +709,7 @@ class uploader(object):
 def mkdesc():
     proto = {}
     proto['magic'] = "PX4FWv1"
-    proto['board_id'] = 9
+    proto['board_id'] = 140
     proto['board_revision'] = 0
     proto['version'] = ""
     proto['summary'] = "PX4FMUv2"
@@ -843,7 +843,7 @@ def main():
             while True:
                 try:
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*'])
 
                     if len(serial_list) == 0:
                         print("Error: no serial connection found")
@@ -874,12 +874,12 @@ def main():
             else:
                 if os.name == 'nt':
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*'])
                     # serial_list = auto_detect_serial(preferred_list=['*FTDI*',
                     #     "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
                 else:
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                    "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                    "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*'])
 
                 if len(serial_list) == 0:
                     print("Error: no serial connection found")

@@ -6,12 +6,14 @@
         "Kconfig": "cmake",
         "*.map": "arm",
         "*.dat": "cmake",
+        ".config": "cmake",
         "board.h": "c",
         "drv_usart.h": "c",
         "drv_common.h": "c",
         "rtdevice.h": "c",
         "rthw.h": "c",
-        "rtthread.h": "c"
+        "rtthread.h": "c",
+        "main.h": "c"
     },
     "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, IndentWidth: 4 ,ColumnLimit: 120}",
     "C_Cpp.clang_format_style": "file",
