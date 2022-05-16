@@ -198,7 +198,7 @@
 
 /* Hardware Drivers Config */
 
-#define SOC_STM32H743II
+#define SOC_STM32H753VI
 
 /* Onboard Peripheral Drivers */
 

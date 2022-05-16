@@ -110,7 +110,7 @@ class firmware(object):
     crcpad = bytearray(b'\xff\xff\xff\xff')
 
     def __init__(self, path):
-        self.desc['board_id'] = 50
+        self.desc['board_id'] = 1010
         self.desc['image_maxsize'] = 2097152
         f = open(path, "rb")
         self.image = bytearray(f.read())
@@ -635,7 +635,7 @@ class uploader(object):
             # If we're still on bootloader v4 on a Pixhawk, we don't know if we
             # have the silicon errata and therefore need to flash px4_fmu-v2
             # with 1MB flash or if it supports px4_fmu-v3 with 2MB flash.
-            if fw.property('board_id') == 9 \
+            if fw.property('board_id') == 1010 \
                     and fw.property('image_size') > 1032192 \
                     and not force:
                 raise RuntimeError("\nThe Board uses bootloader revision 4 and can therefore not determine\n"
@@ -709,7 +709,7 @@ class uploader(object):
 def mkdesc():
     proto = {}
     proto['magic'] = "PX4FWv1"
-    proto['board_id'] = 9
+    proto['board_id'] = 1010
     proto['board_revision'] = 0
     proto['version'] = ""
     proto['summary'] = "PX4FMUv2"
@@ -843,7 +843,7 @@ def main():
             while True:
                 try:
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*', '*TSD*'])
 
                     if len(serial_list) == 0:
                         print("Error: no serial connection found")
@@ -874,12 +874,12 @@ def main():
             else:
                 if os.name == 'nt':
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                        "*STMicroelectronics Virtual COM Port*", "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*', '*TSD*'])
                     # serial_list = auto_detect_serial(preferred_list=['*FTDI*',
                     #     "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
                 else:
                     serial_list = auto_detect_serial(preferred_list=['*FTDI*',
-                    "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*"])
+                    "*3D_Robotics*", "*USB_to_UART*", '*PX4*', '*FMU*', "*Gumstix*", '*Cube*', '*TSD*'])
 
                 if len(serial_list) == 0:
                     print("Error: no serial connection found")

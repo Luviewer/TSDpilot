@@ -6,6 +6,11 @@ src     = Split("""
 main.c
 """)
 
-group = DefineGroup('Applications', src, depend = [''])
+# if GetDepend(['RT_USING_CPLUSPLUS']):
+#     src += Glob('*.cpp')
+
+inc = [cwd]
+
+group = DefineGroup('Applications', src, depend = [''],CPPPATH = inc)
 
 Return('group')

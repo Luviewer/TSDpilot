@@ -1,6 +1,6 @@
 menu "Hardware Drivers Config"
 
-config SOC_STM32H743II
+config SOC_STM32H753VI
     bool
     select SOC_SERIES_STM32H7
     select RT_USING_COMPONENTS_INIT
