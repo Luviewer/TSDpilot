@@ -48,6 +48,11 @@ menu "Onboard Peripheral Drivers"
         select BSP_USING_I2C2
         default n
 
+    config BSP_USING_USBD
+        bool "Enable OTGFS as USB device"
+        select RT_USING_USB_DEVICE
+        default n 
+
 endmenu
 
 menu "On-chip Peripheral Drivers"
@@ -195,7 +200,6 @@ menu "On-chip Peripheral Drivers"
         bool "Enable Watchdog Timer"
         select RT_USING_WDT
         default n
-
 
     source "../../modules/rt-thread/bsp/stm32/libraries/HAL_Drivers/Kconfig"
 

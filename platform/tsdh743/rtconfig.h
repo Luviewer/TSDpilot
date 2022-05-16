@@ -42,7 +42,7 @@
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
-#define RT_CONSOLE_DEVICE_NAME "uart2"
+#define RT_CONSOLE_DEVICE_NAME "uart1"
 #define RT_VER_NUM 0x40100
 #define ARCH_ARM
 #define RT_USING_CPU_FFS
@@ -88,6 +88,18 @@
 
 /* Using USB */
 
+#define RT_USING_USB
+#define RT_USING_USB_DEVICE
+#define RT_USBD_THREAD_STACK_SZ 4096
+#define USB_VENDOR_ID 0x0FFE
+#define USB_PRODUCT_ID 0x0001
+#define _RT_USB_DEVICE_CDC
+#define RT_USB_DEVICE_CDC
+#define RT_VCOM_TASK_STK_SIZE 512
+#define RT_CDC_RX_BUFSIZE 128
+#define RT_VCOM_SERNO "32021919830108"
+#define RT_VCOM_SER_LEN 14
+#define RT_VCOM_TX_TIMEOUT 1000
 
 /* C/C++ and POSIX layer */
 
@@ -202,12 +214,13 @@
 
 /* Onboard Peripheral Drivers */
 
+#define BSP_USING_USBD
 
 /* On-chip Peripheral Drivers */
 
 #define BSP_USING_GPIO
 #define BSP_USING_UART
-#define BSP_USING_UART2
+#define BSP_USING_UART1
 
 /* Board extended module Drivers */
 
