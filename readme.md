@@ -8,3 +8,6 @@
 `cd platform`    
 `cd cuavv5plus`   
 `scons -j4`
+
+author:
+1. taokun
