@@ -17,7 +17,8 @@
         "atomic": "cpp",
         "chrono": "cpp",
         "string": "cpp",
-        "stm32h7xx.h": "c"
+        "stm32h7xx.h": "c",
+        "drv_config.h": "c"
     },
     "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, IndentWidth: 4 ,ColumnLimit: 120}",
     "C_Cpp.clang_format_style": "file",
