@@ -41,7 +41,6 @@ if os.path.exists(SDK_ROOT + '/../modules/bsp/stm32/'):
 else:
     libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/../modules/rt-thread/bsp/stm32/libraries'
 
-
 SDK_LIB = libraries_path_prefix
 Export('SDK_LIB')
 
@@ -58,6 +57,9 @@ objs.extend(SConscript(os.path.join(libraries_path_prefix, stm32_library, 'SCons
 
 # include drivers
 objs.extend(SConscript(os.path.join(libraries_path_prefix, 'HAL_Drivers', 'SConscript')))
+
+# include pilot libraries
+objs.extend(SConscript(os.path.join(RTT_ROOT, '..', '..', 'SConscript')))
 
 # make a building
 DoBuilding(TARGET, objs)

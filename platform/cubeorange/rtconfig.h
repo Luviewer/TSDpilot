@@ -173,7 +173,7 @@
 /* tools packages */
 
 #define PKG_USING_VCONSOLE
-#define PKG_USING_VCONSOLE_V100
+#define PKG_USING_VCONSOLE_LATEST_VERSION
 
 /* system packages */
 

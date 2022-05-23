@@ -1,0 +1,12 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('*.cpp')
+
+# The set of source files associated with this SConscript file.
+path = [cwd, cwd + '/..', cwd + '/../..']
+
+group = DefineGroup('UARTDriver', src, depend = [''], CPPPATH = path)
+
+Return('group')
