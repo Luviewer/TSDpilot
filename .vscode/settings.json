@@ -20,8 +20,9 @@
         "stm32h7xx.h": "c",
         "drv_config.h": "c"
     },
-    "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, IndentWidth: 4 ,ColumnLimit: 120}",
-    "C_Cpp.clang_format_style": "file",
-    "C_Cpp.clang_format_sortIncludes": true,
-    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "xaver.clang-format",
+    "clang-format.fallbackStyle": "WebKit",
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
 }

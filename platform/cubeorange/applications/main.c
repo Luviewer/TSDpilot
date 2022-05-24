@@ -14,18 +14,18 @@
 
 #include "vconsole.h"
 
-/* defined the LED0 pin: PB1 */
-#define LED0_PIN GET_PIN(E, 12)
+// /* defined the LED0 pin: PB1 */
+// #define LED0_PIN GET_PIN(E, 12)
 
-int main(void) {
+// int main(void) {
 
-  while (1) {
+//   while (1) {
 
-    rt_pin_write(LED0_PIN, PIN_HIGH);
-    rt_thread_mdelay(500);
-    rt_pin_write(LED0_PIN, PIN_LOW);
-    rt_thread_mdelay(500);
-  }
-}
+//     rt_pin_write(LED0_PIN, PIN_HIGH);
+//     rt_thread_mdelay(500);
+//     rt_pin_write(LED0_PIN, PIN_LOW);
+//     rt_thread_mdelay(500);
+//   }
+// }
 
 
