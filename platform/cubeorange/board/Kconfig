@@ -181,7 +181,10 @@ menu "On-chip Peripheral Drivers"
 endmenu
 
 menu "Board extended module Drivers"
-
+    config USING_UART_SIMPLE
+        bool "RT_USING_UART_SIMPLE"
+        select RT_USING_UART_SIMPLE
+        default n
 endmenu
 
 endmenu

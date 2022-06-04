@@ -227,5 +227,6 @@
 
 /* Board extended module Drivers */
 
+#define USING_UART_SIMPLE
 
 #endif
