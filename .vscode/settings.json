@@ -18,7 +18,8 @@
         "chrono": "cpp",
         "string": "cpp",
         "stm32h7xx.h": "c",
-        "drv_config.h": "c"
+        "drv_config.h": "c",
+        "sstream": "cpp"
     },
     "editor.defaultFormatter": "xaver.clang-format",
     "clang-format.fallbackStyle": "WebKit",

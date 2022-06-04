@@ -7,8 +7,9 @@ using namespace rtthread;
 class TP_UARTDriver {
 public:
     TP_UARTDriver(const char* _name)
+        : config(RT_SERIAL_CONFIG_DEFAULT)
+        , name(_name)
     {
-        name = _name;
     }
 
     void setup();
