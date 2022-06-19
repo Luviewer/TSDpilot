@@ -1,0 +1,20 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+
+from building import *
+
+src = Split('''
+libcanard/canard.c
+''')
+
+cwd = GetCurrentDir()
+CPPPATH = [cwd + '/canard']
+
+group = DefineGroup(
+    'DroneCAN',
+    src,
+    [],
+    CPPPATH=CPPPATH,
+)
+
+Return('group')

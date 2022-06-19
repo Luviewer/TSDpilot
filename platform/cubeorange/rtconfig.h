@@ -83,6 +83,7 @@
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_CAN
 #define RT_USING_PIN
 #define RT_USING_RTC
 
@@ -224,9 +225,16 @@
 #define BSP_USING_UART
 #define BSP_USING_UART2
 #define BSP_USING_UART3
+#define BSP_USING_ONCHIP_RTC
+#define BSP_RTC_USING_LSI
+#define BSP_USING_CAN
+#define BSP_USING_CAN1
 
-/* Board extended module Drivers */
+/* Libraries Config */
 
-#define USING_UART_SIMPLE
+/* Libraries Examples Config */
+
+#define LIBS_USING_EXAMPLES
+#define LIBS_UAVCAN_SIMPLE_TEST
 
 #endif

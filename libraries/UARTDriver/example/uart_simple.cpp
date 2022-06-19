@@ -1,6 +1,6 @@
 #include <TP_UARTDriver.hpp>
 
-#ifdef USING_UART_SIMPLE
+#ifdef LIBS_UART_SIMPLE_TEST
 
 #define SAMPLE_UART_NAME "uart3" /* 串口设备名称 */
 static rt_device_t serial; /* 串口设备句柄 */

@@ -1,0 +1,14 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Glob('*.cpp')
+
+src += Glob('example/*.cpp')
+
+# The set of source files associated with this SConscript file.
+path = [cwd, cwd + '/..', cwd + '/../..', cwd + '/../../modules/DroneCAN']
+
+group = DefineGroup('UAVCAN', src, depend=[''], CPPPATH=path)
+
+Return('group')

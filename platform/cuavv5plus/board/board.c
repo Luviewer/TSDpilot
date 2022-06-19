@@ -13,6 +13,14 @@
 
 void SystemClock_Config(void)
 {
+  // 复位RCC
+  // bootloader会先配置RCC，导致后配置时失败
+  HAL_RCC_DeInit();
+
+  // 防止bootloader更改BASEPRI的值，造成rtthread调度器无法正常工作
+  // BASEPRI 设置为n后，屏蔽所有优先级数值大于等于n的中断和异常
+  __set_BASEPRI(0);
+
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 

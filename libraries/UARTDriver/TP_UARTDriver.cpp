@@ -19,20 +19,20 @@ void TP_UARTDriver::setup()
     rt_device_open(serial, RT_DEVICE_FLAG_INT_RX);
 }
 
-void TP_UARTDriver::setup()
-{
-    /* 初始化消息队列 */
-    rt_mq_init(&rx_mq, "rx_mq",
-        msg_pool, /* 存放消息的缓冲区 */
-        sizeof(struct rx_msg), /* 一条消息的最大长度 */
-        sizeof(msg_pool), /* 存放消息的缓冲区大小 */
-        RT_IPC_FLAG_FIFO); /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
+// void TP_UARTDriver::setup()
+// {
+//     /* 初始化消息队列 */
+//     rt_mq_init(&rx_mq, "rx_mq",
+//         msg_pool, /* 存放消息的缓冲区 */
+//         sizeof(struct rx_msg), /* 一条消息的最大长度 */
+//         sizeof(msg_pool), /* 存放消息的缓冲区大小 */
+//         RT_IPC_FLAG_FIFO); /* 如果有多个线程等待，按照先来先得到的方法分配消息 */
 
-    /* 以 DMA 接收及轮询发送方式打开串口设备 */
-    rt_device_open(serial, RT_DEVICE_FLAG_DMA_RX);
-    /* 设置接收回调函数 */
-    rt_device_set_rx_indicate(serial, (this->uart_cb));
-}
+//     /* 以 DMA 接收及轮询发送方式打开串口设备 */
+//     rt_device_open(serial, RT_DEVICE_FLAG_DMA_RX);
+//     /* 设置接收回调函数 */
+//     rt_device_set_rx_indicate(serial, (this->uart_cb));
+// }
 
 void TP_UARTDriver::write(const char* str)
 {

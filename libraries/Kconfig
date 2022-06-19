@@ -1,0 +1,24 @@
+menu "Libraries Config"
+
+menu "Libraries Examples Config"
+    menuconfig LIBS_USING_EXAMPLES
+    bool "USING_EXAMPLES"
+    select RT_USING_EXAPMLES
+    select RT_USING_MAIN
+    default n
+    if LIBS_USING_EXAMPLES
+        choice
+            prompt "Select examples"
+            default LIBS_UART_SIMPLE_TEST
+
+            config LIBS_UART_SIMPLE_TEST
+                bool "LIBS_UART_SIMPLE_TEST"
+
+            config LIBS_UAVCAN_SIMPLE_TEST
+                bool "LIBS_UAVCAN_SIMPLE_TEST"
+        endchoice
+    endif
+endmenu
+
+
+endmenu
